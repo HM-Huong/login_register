@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: url("./img/6213932.jpg") no-repeat;
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+	position: relative;
+	/* margin-top: 90px; */
+}
+
+header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	padding: 20px 100px;
+	/* background-color: brown; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 999;
+}
+
+.logo {
+	font-size: 2rem;
+	color: #fff;
+	user-select: none;
+}
+
+.navigation a {
+	font-size: 1.1rem;
+	margin-right: 2.5rem;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 500;
+	position: relative;
+}
+
+.navigation a::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	background-color: #fff;
+	border-radius: 4px;
+	left: 0;
+	bottom: -4px;
+
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform .5s;
+}
+
+.navigation a:hover::after {
+	transform-origin: left;
+	transform: scaleX(1);
+}
+
+.navigation .btn-login {
+	width: 130px;
+	height: 50px;
+	background: transparent;
+	outline: none;
+	border: 2px solid #fff;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 1.1rem;
+	color: white;
+	font-weight: 500;
+	transition: .25s;
+}
+
+.navigation .btn-login:hover {
+	background: #fff;
+	color: #162938;
+}
+
+/* login/register form */
+.wrapper {
+	width: 400px;
+	height: 440px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border: 2px solid rgba(255, 255, 255, 0.6);
+	border-radius: 20px;
+	background-color: rgba(255, 255, 255, 0.32);
+	backdrop-filter: blur(20px);
+	box-shadow: 0 0 30px rbg(0, 0, 0, .5);
+
+	overflow: hidden;
+	transition: transform .25s ease, height 0.2s;
+}
+
+.wrapper.popup {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.wrapper .icon-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 45px;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #162938;
+	color: white;
+	font-size: 2em;
+	border-bottom-left-radius: 20px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.wrapper.isRegister {
+	height: 520px;
+}
+
+.wrapper.isRegister .form-box.register {
+	transition: transform 0.2s ease;
+	transform: translateX(0);
+}
+
+.wrapper.isRegister .form-box.login {
+	transition: none;
+	transform: translateX(-400px);
+}
+
+.form-box.register {
+	position: absolute;
+	transform: translateX(400px);
+	transition: none;
+}
+
+.wrapper .form-box.login {
+	transition: transform 0.2s ease;
+	width: 100%;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	justify-items: center;
+	/* display: none; */
+}
+
+.form-box .title {
+	font-size: 2rem;
+	color: #162938;
+	text-align: center;
+}
+
+.form-box .text-box {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	border-bottom: 2px solid #162938;
+	margin: 30px 0;
+}
+
+
+
+.form-box .text-box label {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 5px;
+	font-size: 1rem;
+	color: #162938;
+	font-weight: 500;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
+.text-box input:focus~label,
+.text-box.isFilled label,
+.text-box input:hover~label {
+	top: -6px;
+}
+
+
+.form-box .text-box input {
+	width: 100%;
+	height: 100%;
+	padding: 0 40px 0 5px;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-weight: 500;
+	font-size: 1rem;
+}
+
+.form-box .text-box .icon {
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.2rem;
+	color: #162938;
+}
+
+.remember-forgot {
+	font-size: 1rem;
+	color: #162938;
+	font-weight: 500;
+	margin: -15px 0 15px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.remember-forgot label input {
+	accent-color: #162938;
+	margin-right: 4px;
+}
+
+.login-register a,
+.remember-forgot a {
+	text-decoration: none;
+	color: #162938;
+	font-weight: 600;
+}
+
+.login-register a:hover,
+.remember-forgot a:hover {
+	text-decoration: underline;
+}
+
+.form-box .btn-submit {
+	width: 100%;
+	height: 44px;
+	background: #162938;
+	color: white;
+	border: none;
+	outline: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.login-register {
+	color: #162938;
+	font-size: 1rem;
+	font-weight: 500;
+	text-align: center;
+	margin-top: 24px;
+}
